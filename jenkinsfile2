@@ -9,7 +9,7 @@ pipeline {
 		}
 			parameters {
 			    string(name: 'VERSION', defaultValue: 'pending 8', description: 'version to deploy on prod')
-				Booleanparam(name: 'executeTests', defaultValue: true, description ' execution to deploy on prod')
+				Booleanparam(name: 'executeTests', defaultValue: true, description: 'execution to deploy on prod')
 			}	
     stages {
         stage('Build') { 
