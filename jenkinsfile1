@@ -18,7 +18,7 @@ pipeline {
         }
 		      stage('post') { 
             steps {
-                "Testing the post job" 
+               echo "Testing the post job" 
             }
         }
     }
