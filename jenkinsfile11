@@ -4,12 +4,12 @@ def mvn = tool name: 'mvn', type: 'maven'
         git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/prowesspeace/main-webapp-my-new-program.git'
     }
     stage('clean-compile') { 
-        sh '${mvn}/bin/mvn clean-compile'		
+        sh '${mvn}/bin/mvn clean compile'		
     }
     stage('Test') { 
-        sh '${mvn}/bin/mvn Test' 
+        sh '${mvn}/bin/mvn test' 
     }
     stage('Package') { 
-        sh '${mvn}/bin/mvn Package' 
+        sh '${mvn}/bin/mvn package' 
     }
 }    
