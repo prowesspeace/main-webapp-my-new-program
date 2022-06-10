@@ -3,9 +3,6 @@ pipeline {
 	    environment {
 		    NEW_VERSION = '1.3.0'
 			SERVER_CREDENTIALS = credentials('test-credentials')
-			tools {
-				maven 'Maven'
-			}
 		}
 			parameters {
 			    string(name: 'VERSION', defaultValue: 'pending 8', description: 'version to deploy on prod')
@@ -17,11 +14,7 @@ pipeline {
                 echo "Building the application"
 				echo "Building NEW_VERSION ${NEW_VERSION}"
             }
-			when {
-				expression {
-				
-				}
-			}
+			
         }
         stage('Test') { 
             steps {
