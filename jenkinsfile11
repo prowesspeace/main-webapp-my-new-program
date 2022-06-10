@@ -1,0 +1,13 @@
+node {  
+    stage('SCM-checkout') { 
+        // 
+    }
+    stage('clean-compile') { 
+        // 
+    }
+    stage('Test') { 
+        // 
+    }
+	stage('Package') { 
+        // 
+    }
