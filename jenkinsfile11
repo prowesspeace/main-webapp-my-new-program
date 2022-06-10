@@ -1,15 +1,15 @@
 node {  
-def tool name: 'mvn', type: 'maven'
+def mvn = tool name: 'mvn', type: 'maven'
     stage('SCM-checkout') { 
         git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/prowesspeace/main-webapp-my-new-program.git'
     }
     stage('clean-compile') { 
-        // 
+        sh '${mvn}/bin/mvn clean-compile'		
     }
     stage('Test') { 
-        // 
+        sh '${mvn}/bin/mvn Test' 
     }
     stage('Package') { 
-        // 
+        sh '${mvn}/bin/mvn Package' 
     }
 }    
