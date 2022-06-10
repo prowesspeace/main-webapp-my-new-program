@@ -1,6 +1,7 @@
 node {  
+def tool name: 'mvn', type: 'maven'
     stage('SCM-checkout') { 
-        // 
+        git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/prowesspeace/main-webapp-my-new-program.git'
     }
     stage('clean-compile') { 
         // 
