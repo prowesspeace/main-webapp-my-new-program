@@ -14,7 +14,7 @@ def mvn = tool name: 'mvn', type: 'maven'
     }
 	stage('Tomcat-Deployment') { 
 		sshagent(['ec2-user-tomcat-credentials']) {
-		sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 172.31.13.84 Linux ip-172-31-14-179.us-west-2.compute.internal 5.10.109-104.500.amzn2.x86_64 #1 SMP Wed Apr 13 20:31:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux'
+		sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 172.31.14.179 Linux ip-172-31-14-179.us-west-2.compute.internal 5.10.109-104.500.amzn2.x86_64 #1 SMP Wed Apr 13 20:31:43 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux'
 		}	
    }
 }
