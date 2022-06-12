@@ -14,7 +14,7 @@ def mvn = tool name: 'mvn', type: 'maven'
     }
 	stage('Tomcat-Deployment') { 
 		sshagent(['ec2-user-tomcat-credentials']) {
-		sh 'ssh -o StrictHostKeyChecking=no -l cloudbees 172.31.13.84 uname -a'
+		sh 'ssh -o StrictHostKeyChecking=no -l ec2-user 172.31.13.84 uname -a'
 		}	
    }
 }
