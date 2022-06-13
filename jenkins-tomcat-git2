@@ -1,0 +1,20 @@
+node {  
+def mvn = tool name: 'mvn', type: 'maven'
+    stage('SCM-checkout') { 
+        git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/prowesspeace/main-webapp-my-new-program.git'
+    }
+    stage('clean-compile') { 
+        sh "${mvn}/bin/mvn clean compile"		
+    }
+    stage('Test') { 
+        sh "${mvn}/bin/mvn test" 
+    }
+    stage('Package') { 
+        sh "${mvn}/bin/mvn package" 
+    }
+	 stage('Tomcat-Deployment') { 
+		    sshagent(['ec2-user-tomcat-credentials']) {
+		    sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.14.179:/opt/tomcat/webapps/"
+		   }	
+    }
+}  
